@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lists</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!--       <li v-for="(value, key, index) in items">{{ key }}: {{ value }} {{ index }}</li> -->
+      <li v-for="(item, index) in items" :key="index">{{ item.name }}</li>
+    </ul>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        items: [
+          { name: "Hello" },
+          { name: "Dos" },
+          { name: "Hola" }
+        ]
+      },
+    });
+  </script>
+</body>
+
+</html>
