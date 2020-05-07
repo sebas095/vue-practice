@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--     <button @click="eventClick('Hola', $event)">Click</button> -->
+    <form @submit.prevent="eventClick">
+      <button type="submit">Enviar</button>
+    </form>
+
+    <input type="text" @keyup.enter.once="eventClick">
+    <button @click.once.self.prevent="eventClick">Click</button>
+
+    <div @copy="eventClick">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, iure impedit, expedita odit voluptatem quis
+      dolorum quod veniam ducimus necessitatibus alias, consequatur doloremque nulla unde veritatis harum mollitia
+      cumque aspernatur!
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+      },
+
+      methods: {
+        eventClick(ev) {
+          alert("Sent")
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
