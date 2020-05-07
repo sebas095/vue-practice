@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals</title>
+</head>
+
+<body>
+  <div id="app">
+    <template v-if="flag">
+      <p>Hola</p>
+      <p>Mundo</p>
+      <p>Vue</p>
+    </template>
+    <h1 v-text="message"></h1>
+    <p v-show="flag">Show</p>
+    <p v-if="flag">True</p>
+    <p v-else>False</p>
+    <input type="checkbox" v-model="flag">
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        message: "Hola Mundo",
+        flag: true
+      },
+    });
+  </script>
+</body>
+
+</html>
