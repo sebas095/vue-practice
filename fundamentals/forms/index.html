@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms</title>
+</head>
+
+<body>
+  <div id="app">
+    <template v-if="errors.length > 0">
+      <ul>
+        <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+      </ul>
+    </template>
+
+    <form @submit.prevent="formSubmit">
+      <input type="text" v-model="input">
+      <select v-model="select">
+        <option value="">Default</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+
+      <textarea v-model="textarea"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        errors: [],
+        input: "",
+        select: "",
+        textarea: ""
+      },
+
+      methods: {
+        formSubmit() {
+          this.errors = [];
+
+          if (!this.input)
+            this.errors.push("El campo input es requerido")
+
+          if (!this.select)
+            this.errors.push("El campo select es requerido")
+
+          if (!this.textarea)
+            this.errors.push("El campo textarea es requerido")
+
+          console.log(this.input);
+          console.log(this.select);
+          console.log(this.textarea);
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
