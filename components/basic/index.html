@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components</title>
+</head>
+
+<body>
+  <div id="app">
+    <new-component></new-component>
+  </div>
+
+  <div id="app2">
+    <new-component></new-component>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    const newComponent = {
+      template: `<button @click="clickCounter">Clicks {{ counter }}</button>`,
+      data() {
+        return {
+          counter: 0
+        }
+      },
+
+      methods: {
+        clickCounter() {
+          this.counter++;
+        }
+      },
+    };
+
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        input: "Hola Mundo"
+      },
+      components: {
+        'new-component': newComponent
+      }
+    });
+  </script>
+
+  <script>
+    const vue2 = new Vue({
+      el: "#app2",
+      components: {
+        'new-component': newComponent
+      }
+    });
+  </script>
+</body>
+
+</html>
