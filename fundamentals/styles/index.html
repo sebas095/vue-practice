@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="alert" :style="{ fontSize: fontSize + 'px'}" :class="classObject">Lorem ipsum dolor sit amet
+      consectetur, adipisicing elit. Dolores quidem optio ullam veritatis deleniti ipsa dicta eaque ad obcaecati eos,
+      quasi atque, accusamus repellendus dolorem nostrum error asperiores quo provident.</div>
+    <input type="checkbox" v-model="flag">
+    Font-size: <input type="number" min="0" v-model="fontSize">
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        flag: true,
+        fontSize: 50
+        /* classObject: {
+          'alert-danger': true
+        } */
+      },
+
+      computed: {
+        classObject() {
+          return {
+            'alert-danger': this.flag,
+            'alert-success': !this.flag
+          }
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
